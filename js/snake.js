@@ -17,7 +17,7 @@ let treasureNumber = 70;
 let score = 0;
 let treasureLeft = treasureNumber;
 let treasureEaten = 0;
-const fieldWidth = 24;
+const fieldWidth = 25;
 const fieldHeight = 25;
 
 let treasureMap = Array.from(Array(fieldWidth + 2), () => new Array(fieldHeight + 2));
@@ -91,6 +91,7 @@ const winner = function () {
       snakeField.querySelector(`div[data-location = '${col},${row}']`).style.backgroundColor = "orange";
     }
   }
+  startBtn.disabled = false;
 };
 
 const snake = new Snake();
@@ -107,7 +108,7 @@ const handleClick = document.addEventListener("click", (e) => {
 
 const setApplesNumber = function () {
   const applesNumber = parseInt(document.querySelector(".footer-container__apples-number").value);
-    console.log(applesNumber);
+  console.log(applesNumber);
   if (applesNumber) {
     console.log(typeof applesNumber);
     treasureNumber = applesNumber <= 0 ? 1 : applesNumber;
@@ -119,6 +120,7 @@ const setApplesNumber = function () {
 
 const handleStartBtn = startBtn.addEventListener("click", (e) => {
   const handleArrow = document.addEventListener("keydown", handleArrowFunction);
+  createOneBlock(2, 5);
   setApplesNumber();
   snake.gameReset();
   buildSnakeField();
@@ -127,6 +129,7 @@ const handleStartBtn = startBtn.addEventListener("click", (e) => {
   document.querySelector(".snake-result__eaten-apples").textContent = "0";
   document.querySelector(".snake-result__apples-left").textContent = `${treasureNumber}`;
   startClock();
+  startBtn.disabled = true;
 });
 
 const eatenApplesSpan = document.querySelector(".snake-result__eaten-apples");
@@ -248,15 +251,24 @@ const setTreasureMap = function () {
   } while (count <= treasureNumber);
 };
 
+const createOneBlock = (col, row) => {
+
+  const block = document.createElement("div");
+  block.classList.add("one-block");
+  block.setAttribute("data-location", `${col},${row}`);
+  block.style.setProperty("top", `${row * 22}px`);
+  block.style.setProperty("left", `${col * 22}px`);
+  return block;
+};
+
 const buildSnakeField = function () {
   for (let row = 1; row <= fieldHeight; row += 1) {
     for (let col = 1; col <= fieldWidth; col += 1) {
-      snakeField.insertAdjacentHTML("beforeend", `<div class="one-block" data-location="${col},${row}""></div> `);
+      snakeField.append(createOneBlock(col,row));
       treasureMap[col][row] = {
         treasure: "false",
         type: "",
       };
-      /*       console.log(col, row, treasureMap[col][row].treasure); */
     }
   }
 };

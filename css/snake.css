@@ -1,5 +1,13 @@
+:root {
+  --font-main: Roboto, sans-serif;
+  --font-logo: Raleway, sans-serif;
+}
+
 body {
   text-align: center;
+  /*   font-family: var(--font-main); */
+  /*   font-size: 12px; */
+  /*   color: var(--fontcolor-body); */
 }
 
 div {
@@ -7,15 +15,31 @@ div {
   padding: 0;
 }
 
+/* html {
+  line-height: 1;
+} */
+
+.one-block {
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+  background-color: darkkhaki;
+  border: 1px solid darkolivegreen;
+  /*   background-color: gray; */
+  display: inline-block;
+  /*   font-size:6px; */
+}
+
 .snake-field {
-  /*   position: relative; */
+  position: relative;
   margin: 0 auto;
   padding-top: 2px;
-  max-width: 600px;
-  height: 596px;
+  width: 600px;
+  height: 600px;
   border: 5px solid darkgreen;
   border-radius: 5px;
-  background-color: darkkhaki;
+  background-color: rgb(146, 163, 45);
 }
 
 .snake-result {
@@ -24,20 +48,11 @@ div {
   align-items: center;
   margin: 0 auto;
   padding-top: 2px;
-  max-width: 600px;
+  width: 600px;
   height: 50px;
   border: 5px solid darkgreen;
   border-radius: 5px;
   background-color: darkkhaki;
-}
-
-.one-block {
-  /*   position: absolute; */
-  width: 20px;
-  height: 20px;
-  border: 1px solid darkslategray;
-  /*   background-color: gray; */
-  display: inline-block;
 }
 
 .snake-result__p {
@@ -71,34 +86,34 @@ div {
   text-align: left;
 }
 .footer-container__tips {
-  min-width:60%;
+  min-width: 60%;
 }
 
 .footer-container {
   margin: 0 auto;
   padding-top: 2px;
-  max-width: 600px;
+  width: 600px;
   border: 5px solid darkgreen;
   border-radius: 5px;
   background-color: darkkhaki;
 }
 
-.js-date , .js-clock-min, .js-clock-sec
-{
-font-weight: 700;
+.js-date,
+.js-clock-min,
+.js-clock-sec {
+  font-weight: 700;
 }
 
-.date-name, .clock-name {
+.date-name,
+.clock-name {
   margin-right: 5px;
   font-weight: 600;
 }
 
-.footer-container{
-  display:flex;
-
+.footer-container {
+  display: flex;
 }
 
 /* .footer-container__apples-count{
   display:online-block;
 } */
-
