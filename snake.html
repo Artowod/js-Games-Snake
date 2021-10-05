@@ -12,46 +12,49 @@
 
 <body>
     <hero class="hero">
-        <h1 class= "hero__title">Snake - eat them all !</h1>
+        <h1 class="hero__title">Snake - eat them all !</h1>
     </hero>
     <div class="fine-things-around">
         <div class="snake-field">
         </div>
+        <div class="snake-intro-modal__hover-frame">Read Me!</div>
+        <div class="snake-intro-modal modal-hide">
+            <ul class='snake-intro__tips-list'>
+                <li>
+                    Пользуемся стрелками
+                </li>
+                <li>
+                    За край не пускаем
+                </li>
+                <li>
+                    на свою тушку не залезешь
+                </li>
+                <li>
+                    повторно яблочки не смнямаешь
+                </li>
+                <li>
+                    СМОЖЕШЬ СЪЕСТЬ ИХ ВСЕХ??
+                </li>
+                <li>
+                    ...скоро будут очки и разные сокровища
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="snake-result">
         <p class='clock-name'>Time: </p><span class='js-clock-min'>00</span><span>:</span></span><span class='js-clock-sec'>00</span>
-        <p class='snake-result__p'>Eaten apples:<span class='snake-result__eaten-apples'>0</span> </p>
+        <p class='snake-result__title'>Eaten apples:<span class='snake-result__eaten-apples'>0</span> </p>
         <button class='snake-result__start-btn' type='button'>start</button>
-        <p class='snake-result__p'>Apples left:<span class='snake-result__apples-left'>--</span> </p>
+        <p class='snake-result__title'>Apples left:<span class='snake-result__apples-left'>--</span> </p>
         <p class='date-name'>Date: </p><span class='js-date'>00:00:00</span>
     </div>
     <footer>
         <div class="footer-container">
-            <div class="footer-container__tips">
-                <ul class='footer-container__tips-list'>
-                    <li>
-                        Пользуемся стрелками
-                    </li>
-                    <li>
-                        За край не пускаем
-                    </li>
-                    <li>
-                        на свою тушку не залезешь
-                    </li>
-                    <li>
-                        повторно яблочки не смнямаешь
-                    </li>
-                    <li>
-                        СМОЖЕШЬ СЪЕСТЬ ИХ ВСЕХ??
-                    </li>
-                    <li>
-                        ...скоро будут очки и разные сокровища
-                    </li>
-                </ul>
+            <div class="footer-container__treasure">
             </div>
             <div class='footer-container__settings'>
-                <p class="footer-container__settings-name">Задай, сколько яблок разбросать. Иначе разбросаю 70 !</p>
-                <input class='footer-container__apples-number' type='number' min="1" max="100">
+                <p class="footer-container__settings-name">How many apples do u want to throw?</p>
+                <input class='footer-container__apples-number' type='number' min="1" max="100" value ="50">
             </div>
         </div>
     </footer>

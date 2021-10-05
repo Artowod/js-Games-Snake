@@ -10,22 +10,19 @@ body {
   /*   color: var(--fontcolor-body); */
 }
 
-div {
+div p {
   margin: 0;
   padding: 0;
 }
 
-/* html {
-  line-height: 1;
-} */
-
 .hero__title {
   background: linear-gradient(#e66465, #73ff00);
   color: black;
-  padding:10px;
+  padding: 10px;
   font-weight: 700;
-  font-family:var(--font-logo);
+  font-family: var(--font-logo);
 }
+
 .one-block {
   position: absolute;
 
@@ -49,6 +46,45 @@ div {
   background-color: rgb(146, 163, 45);
 }
 
+.snake-intro-modal {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+  top: 13px;
+  right: -43px;
+  height: 244px;
+  padding-right: 10px;
+  border: 3px solid darkolivegreen;
+  border-radius: 3px;
+  text-align: left;
+  background-color: rgb(146, 163, 45);
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms linear;
+}
+
+.snake-intro-modal__hover-frame:hover ~ .snake-intro-modal {
+  transform: translate(-48px);
+  opacity: 1;
+  z-index: 0;
+}
+
+.snake-intro-modal__hover-frame {
+  z-index: 2;
+  position: absolute;
+  width: 50px;
+  height: 250px;
+  top: 10px;
+  right: -46px;
+  background-color: rgb(146, 163, 45);
+  border: 5px solid darkgreen;
+  border-radius: 5px;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  padding: 0 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .snake-result {
   display: flex;
   justify-content: center;
@@ -62,7 +98,7 @@ div {
   background-color: darkkhaki;
 }
 
-.snake-result__p {
+.snake-result__title {
   margin: 0 10px;
   font-weight: 600;
 }
@@ -89,10 +125,7 @@ div {
   color: brown;
 }
 
-.footer-container__tips-list {
-  text-align: left;
-}
-.footer-container__tips {
+.footer-container__treasure {
   min-width: 60%;
 }
 
@@ -100,7 +133,8 @@ div {
   position: relative;
   display: flex;
   margin: 0 auto;
-  padding-top: 2px;
+  padding: 10px ;
+
   width: 600px;
   border: 5px solid darkgreen;
   border-radius: 5px;
@@ -118,10 +152,6 @@ div {
   margin-right: 5px;
   font-weight: 600;
 }
-
-/* .footer-container__apples-count{
-  display:online-block;
-} */
 
 .snake-on-branch {
   position: absolute;
@@ -147,4 +177,8 @@ div {
   padding-top: 2px;
   width: 600px;
   height: 600px;
+}
+
+.footer-container__apples-number{
+  width:45px;
 }

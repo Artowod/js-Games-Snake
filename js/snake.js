@@ -13,7 +13,7 @@ const oneBlock() => {
     return result;
 }
  */
-let treasureNumber = 70;
+let treasureNumber = 50;
 let score = 0;
 let treasureLeft = treasureNumber;
 let treasureEaten = 0;
