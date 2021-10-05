@@ -1,0 +1,104 @@
+body {
+  text-align: center;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+.snake-field {
+  /*   position: relative; */
+  margin: 0 auto;
+  padding-top: 2px;
+  max-width: 600px;
+  height: 596px;
+  border: 5px solid darkgreen;
+  border-radius: 5px;
+  background-color: darkkhaki;
+}
+
+.snake-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 2px;
+  max-width: 600px;
+  height: 50px;
+  border: 5px solid darkgreen;
+  border-radius: 5px;
+  background-color: darkkhaki;
+}
+
+.one-block {
+  /*   position: absolute; */
+  width: 20px;
+  height: 20px;
+  border: 1px solid darkslategray;
+  /*   background-color: gray; */
+  display: inline-block;
+}
+
+.snake-result__p {
+  margin: 0 10px;
+  font-weight: 600;
+}
+
+.snake-result__start-btn {
+  margin: 0 10px;
+  padding: 0 10px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+.snake-result__apples-left,
+.snake-result__eaten-apples {
+  margin: 0 5px;
+}
+
+.snake-result__eaten-apples {
+  color: darkgreen;
+}
+
+.snake-result__apples-left {
+  color: brown;
+}
+
+.footer-container__tips-list {
+  text-align: left;
+}
+.footer-container__tips {
+  min-width:60%;
+}
+
+.footer-container {
+  margin: 0 auto;
+  padding-top: 2px;
+  max-width: 600px;
+  border: 5px solid darkgreen;
+  border-radius: 5px;
+  background-color: darkkhaki;
+}
+
+.js-date , .js-clock-min, .js-clock-sec
+{
+font-weight: 700;
+}
+
+.date-name, .clock-name {
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+.footer-container{
+  display:flex;
+
+}
+
+/* .footer-container__apples-count{
+  display:online-block;
+} */
+
