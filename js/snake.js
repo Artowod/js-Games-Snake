@@ -4,7 +4,7 @@ console.log("Lodash is here: 1+2 =", _.add(1, 2));
 
 const snakeField = document.querySelector(".snake-field");
 const startBtn = document.querySelector(".snake-result__start-btn ");
-
+const applesInput = document.querySelector(".footer-container__apples-number");
 /*
 const oneBlock() => {
     
@@ -82,10 +82,8 @@ const startClock = function () {
 
 } */
 const addFineBackground = function () {
-  document
-    .querySelector(".fine-things-around")
-    .insertAdjacentHTML("afterbegin", '<div class ="snake-on-branch"></div>');
-  document.querySelector(".fine-things-around").insertAdjacentHTML("afterbegin", '<div class ="snake-on-grass"></div>');
+  document.querySelector(".fine-things-around").insertAdjacentHTML("afterbegin", '<div class ="snake-on-branch"></div>');
+  document.querySelector(".footer-container").insertAdjacentHTML("beforeend", '<div class ="snake-on-grass"></div>');
 };
 addFineBackground();
 
@@ -114,20 +112,19 @@ const handleClick = document.addEventListener("click", (e) => {
 });
 
 const setApplesNumber = function () {
-  const applesNumber = parseInt(document.querySelector(".footer-container__apples-number").value);
+  const applesNumber = parseInt(applesInput.value);
   console.log(applesNumber);
   if (applesNumber) {
     console.log(typeof applesNumber);
     treasureNumber = applesNumber <= 0 ? 1 : applesNumber;
     treasureNumber = applesNumber > 100 ? 100 : applesNumber;
-    document.querySelector(".footer-container__apples-number").value = treasureNumber;
+    applesInput.value = treasureNumber;
     console.log(treasureNumber);
   }
 };
 
 const handleStartBtn = startBtn.addEventListener("click", (e) => {
   const handleArrow = document.addEventListener("keydown", handleArrowFunction);
-  createOneBlock(2, 5);
   setApplesNumber();
   snake.gameReset();
   buildSnakeField();
@@ -137,6 +134,7 @@ const handleStartBtn = startBtn.addEventListener("click", (e) => {
   document.querySelector(".snake-result__apples-left").textContent = `${treasureNumber}`;
   startClock();
   startBtn.disabled = true;
+  applesInput.disabled = true;
 });
 
 const eatenApplesSpan = document.querySelector(".snake-result__eaten-apples");
@@ -198,9 +196,7 @@ const isSnakeBodyHere = function (offsetX, offsetY) {
 };
 
 function handleArrowFunction(e) {
-  /*   isTheEnd(); */
   if (e.key === "ArrowUp") {
-    /* snake.locationY -= 1; */
     if (!isFieldBorderHere(0, -1))
       if (!isSnakeBodyHere(0, -1)) {
         isTreasureHere(0, -1);
@@ -246,13 +242,10 @@ const setTreasureMap = function () {
     if (treasureMap[randomCol][randomRow].treasure === "false") {
       treasureMap[randomCol][randomRow].treasure = "true";
       treasureMap[randomCol][randomRow].type = "apple";
-
-      /*     console.log(randomCol, randomRow, treasureMap[randomCol][randomRow].treasure); */
       const node = snakeField.querySelector(`div[data-location = '${randomCol},${randomRow}']`);
       node.style.backgroundRepeat = `no-repeat`;
       node.style.backgroundSize = `contain`;
       node.style.backgroundImage = `url(./images/apple.jpg)`;
-      /*       console.log(node); */
       count += 1;
     }
   } while (count <= treasureNumber);
