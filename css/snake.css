@@ -117,3 +117,25 @@ div {
 /* .footer-container__apples-count{
   display:online-block;
 } */
+
+.snake-on-branch {
+  position: absolute;
+  left:-300px;
+  width: 300px;
+  height: 190px;
+  background-image: url("../images/snake-on-branch.png");
+  background-repeat: no-repeat;
+}
+
+.snake-on-grass {
+  position: absolute;
+  right: 20%;
+  background-image: url("../images/snake-on-grass.png");
+}
+.fine-things-around {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 2px;
+  width: 600px;
+  height: 600px;
+}

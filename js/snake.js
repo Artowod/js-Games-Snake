@@ -81,6 +81,13 @@ const startClock = function () {
   isSnakeBodyHere()
 
 } */
+const addFineBackground = function () {
+  document
+    .querySelector(".fine-things-around")
+    .insertAdjacentHTML("afterbegin", '<div class ="snake-on-branch"></div>');
+  document.querySelector(".fine-things-around").insertAdjacentHTML("afterbegin", '<div class ="snake-on-grass"></div>');
+};
+addFineBackground();
 
 const winner = function () {
   document.removeEventListener("keydown", handleArrowFunction);
@@ -252,7 +259,6 @@ const setTreasureMap = function () {
 };
 
 const createOneBlock = (col, row) => {
-
   const block = document.createElement("div");
   block.classList.add("one-block");
   block.setAttribute("data-location", `${col},${row}`);
@@ -264,7 +270,7 @@ const createOneBlock = (col, row) => {
 const buildSnakeField = function () {
   for (let row = 1; row <= fieldHeight; row += 1) {
     for (let col = 1; col <= fieldWidth; col += 1) {
-      snakeField.append(createOneBlock(col,row));
+      snakeField.append(createOneBlock(col, row));
       treasureMap[col][row] = {
         treasure: "false",
         type: "",
