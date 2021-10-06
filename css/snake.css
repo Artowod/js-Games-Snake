@@ -85,6 +85,54 @@ div p {
   text-transform: uppercase;
 }
 
+.snake-score-modal__title{
+  text-align: center;
+}
+
+.snake-score-modal__element:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.snake-score-modal {
+  opacity: 0;
+  z-index: -1;
+  width:500px;
+  position: absolute;
+  bottom: 13px;
+  left: -43px;
+  height: 244px;
+  padding-right: 10px;
+  border: 3px solid darkolivegreen;
+  border-radius: 3px;
+  text-align: left;
+  background-color: rgb(146, 163, 45);
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms linear;
+}
+
+.snake-score-modal__hover-frame:hover ~ .snake-score-modal {
+  transform: translate(48px);
+  opacity: 1;
+  z-index: 0;
+}
+
+.snake-score-modal__hover-frame {
+  z-index: 2;
+  position: absolute;
+  width: 50px;
+  height: 250px;
+  bottom: 10px;
+  left: -46px;
+  background-color: rgb(146, 163, 45);
+  border: 5px solid darkgreen;
+  border-radius: 5px;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  padding: 0 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .snake-result {
   display: flex;
   justify-content: center;

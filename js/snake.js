@@ -82,7 +82,9 @@ const startClock = function () {
 
 } */
 const addFineBackground = function () {
-  document.querySelector(".fine-things-around").insertAdjacentHTML("afterbegin", '<div class ="snake-on-branch"></div>');
+  document
+    .querySelector(".fine-things-around")
+    .insertAdjacentHTML("afterbegin", '<div class ="snake-on-branch"></div>');
   document.querySelector(".footer-container").insertAdjacentHTML("beforeend", '<div class ="snake-on-grass"></div>');
 };
 addFineBackground();
@@ -239,15 +241,16 @@ const setTreasureMap = function () {
   do {
     let randomRow = parseInt(Math.random() * (fieldHeight - 1) + 1);
     let randomCol = parseInt(Math.random() * (fieldWidth - 1) + 1);
-    if (treasureMap[randomCol][randomRow].treasure === "false") {
-      treasureMap[randomCol][randomRow].treasure = "true";
-      treasureMap[randomCol][randomRow].type = "apple";
-      const node = snakeField.querySelector(`div[data-location = '${randomCol},${randomRow}']`);
-      node.style.backgroundRepeat = `no-repeat`;
-      node.style.backgroundSize = `contain`;
-      node.style.backgroundImage = `url(./images/apple.png)`;
-      count += 1;
-    }
+    if (randomRow !== 13 && randomCol !== 13)
+      if (treasureMap[randomCol][randomRow].treasure === "false") {
+        treasureMap[randomCol][randomRow].treasure = "true";
+        treasureMap[randomCol][randomRow].type = "apple";
+        const node = snakeField.querySelector(`div[data-location = '${randomCol},${randomRow}']`);
+        node.style.backgroundRepeat = `no-repeat`;
+        node.style.backgroundSize = `contain`;
+        node.style.backgroundImage = `url(./images/apple.png)`;
+        count += 1;
+      }
   } while (count <= treasureNumber);
 };
 
