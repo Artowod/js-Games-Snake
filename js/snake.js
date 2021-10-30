@@ -87,10 +87,49 @@ const addFineBackground = function () {
     .insertAdjacentHTML("afterbegin", '<div class ="snake-on-branch"></div>');
   document.querySelector(".footer-container").insertAdjacentHTML("beforeend", '<div class ="snake-on-grass"></div>');
 };
+
 addFineBackground();
+
+const showScoreFromStorage = () => {
+  if (!localStorage.getItem("snake")) return;
+  const scoreArr = JSON.parse(localStorage.getItem("snake")).map((item) => {
+    const markupOneRecord = JSON.stringify(item).replaceAll('"', " ");
+    return `<li>${markupOneRecord}</li>`;
+  });
+
+  document.querySelector(".snake-score-modal__list").innerHTML = scoreArr.join("");
+};
+
+showScoreFromStorage();
+
+const localStorageHandling = () => {
+  let dataFromStorage = [];
+  if (localStorage.getItem("snake") && typeof localStorage.getItem("snake") === "string") {
+    dataFromStorage = JSON.parse(localStorage.getItem("snake"));
+    console.log("*");
+  }
+  /*     JSON.stringify([
+        { score: 2000, apples: 13, time: 14, date: "1 May" },
+    ]);
+ */
+  const currentSave = {
+    score: score,
+    apples: treasureEaten,
+    time: `${document.querySelector(".js-clock-min").textContent}:${
+      document.querySelector(".js-clock-sec").textContent
+    }`,
+    date: `${date.getDate().toString().padStart(2, "0")}.${(date.getMonth() + 1).toString().padStart(2, "0")}`,
+  };
+  console.log("from storage", dataFromStorage);
+  dataFromStorage.push(currentSave);
+  console.log(dataFromStorage);
+  localStorage.setItem("snake", JSON.stringify(dataFromStorage));
+  showScoreFromStorage();
+};
 
 const winner = function () {
   document.removeEventListener("keydown", handleArrowFunction);
+  localStorageHandling();
   clearInterval(clockId);
   clockId = null;
   for (let row = 1; row <= fieldHeight; row += 1) {
